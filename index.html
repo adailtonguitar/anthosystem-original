@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>AnthoSystem - Sistema de Vendas</title>
+    <meta name="description" content="AnthoSystem - Sistema completo de vendas com operação offline e sincronização em nuvem" />
+    <meta name="author" content="AnthoSystem" />
+
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#1e40af" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="AnthoSystem" />
+    <link rel="apple-touch-icon" href="/logo-as.png" />
+    <link rel="icon" type="image/png" href="/logo-as.png" />
+    <link rel="canonical" href="https://cloud-ponto-magico.lovable.app/" />
+
+    <meta property="og:title" content="AnthoSystem - Sistema de Vendas Completo" />
+    <meta property="og:description" content="AnthoSystem - Sistema de vendas com emissão de NF-e/NFC-e, controle de estoque, gestão financeira e operação offline." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/pwa-icon-512.png" />
+    <meta property="og:url" content="https://cloud-ponto-magico.lovable.app/" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="AnthoSystem - Sistema de Vendas" />
+    <meta name="twitter:description" content="AnthoSystem - Sistema completo de vendas com operação offline e sincronização em nuvem" />
+    <meta name="twitter:image" content="/pwa-icon-512.png" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "AnthoSystem",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web",
+      "description": "AnthoSystem - Sistema de vendas completo com emissão de NF-e/NFC-e, controle de estoque, gestão financeira e operação offline.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "BRL"
+      }
+    }
+    </script>
+  </head>
+
+  <body>
+    <div id="root"></div>
+    <script>
+      // Prevent PWA service worker registration inside Electron
+      if (window.electronAPI && window.electronAPI.isElectron) {
+        // Unregister existing service workers
+        if ('serviceWorker' in navigator) {
+          navigator.serviceWorker.getRegistrations().then(function(registrations) {
+            registrations.forEach(function(r) { r.unregister(); });
+          });
+        }
+        // Block future registrations
+        Object.defineProperty(navigator, 'serviceWorker', {
+          get: function() { return { register: function() { return Promise.resolve(); }, getRegistrations: function() { return Promise.resolve([]); } }; }
+        });
+      }
+    </script>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

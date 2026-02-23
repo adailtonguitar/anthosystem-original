@@ -1,0 +1,31 @@
+project_id = "xvopwjwgvriisizysbkf"
+
+[functions.export-company-data]
+verify_jwt = false
+
+[functions.ncm-lookup]
+verify_jwt = false
+
+[functions.invite-user]
+verify_jwt = false
+
+[functions.nuvem-fiscal]
+verify_jwt = false
+
+[functions.mp-webhook]
+verify_jwt = false
+
+[functions.send-email]
+verify_jwt = false
+
+[functions.tef-mercadopago]
+verify_jwt = false
+
+[functions.pix-create]
+verify_jwt = false
+
+[functions.tef-gateway]
+verify_jwt = false
+
+[functions.send-renewal-reminder]
+verify_jwt = false

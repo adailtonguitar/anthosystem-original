@@ -1,0 +1,40 @@
+{
+  "appId": "app.lovable.pdv",
+  "asar": true,
+  "extraMetadata": {
+    "main": "electron/main.cjs",
+    "type": "commonjs"
+  },
+  "afterPack": "./electron/afterPack.cjs",
+  "productName": "AnthoSystem",
+  "directories": {
+    "output": "release"
+  },
+  "files": [
+    "dist/**/*",
+    "electron/**/*",
+    "index.cjs",
+    "public/pwa-icon-512.png"
+  ],
+  "win": {
+    "target": ["nsis"],
+    "icon": "public/pwa-icon-512.png"
+  },
+  "nsis": {
+    "oneClick": false,
+    "allowToChangeInstallationDirectory": true,
+    "createDesktopShortcut": true,
+    "createStartMenuShortcut": true,
+    "shortcutName": "AnthoSystem"
+  },
+  "linux": {
+    "target": ["AppImage"],
+    "icon": "public/pwa-icon-512.png"
+  },
+  "publish": {
+    "provider": "github",
+    "owner": "adailtonguitar",
+    "repo": "fiscal-conecta",
+    "releaseType": "release"
+  }
+}
